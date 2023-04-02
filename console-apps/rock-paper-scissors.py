@@ -64,15 +64,15 @@ while choice_player != '0':
             break
         # Logic for an accepted input
         else:
-            # Print out the choices 
+            # Print out the choices to make it pretty and visual
             print('You chose:')
             print(choice_images[choice_player - 1])
             print('Computer chose:')
             print(choice_images[choice_computer - 1])
 
+            if choice_player == choice_computer:
+                print("DRAW!")
             # Outcomes where player chooses Rock
-            if choice_player == 1 and choice_computer == 1:
-                print('DRAW!')
             elif choice_player == 1 and choice_computer == 2:
                 print('YOU LOSE!')
             elif choice_player == 1 and choice_computer == 3:
@@ -81,8 +81,6 @@ while choice_player != '0':
             # Outcomes where player chooses Paper
             elif choice_player == 2 and choice_computer == 1:
                 print('YOU WIN!')
-            elif choice_player == 2 and choice_computer == 2:
-                print('DRAW!')
             elif choice_player == 2 and choice_computer == 3:
                 print('YOU LOSE!')
 
@@ -91,9 +89,8 @@ while choice_player != '0':
                 print('YOU LOSE!')
             elif choice_player == 3 and choice_computer == 2:
                 print('YOU WIN!')
-            elif choice_player == 3 and choice_computer == 3:
-                print('DRAW!')
             
+            # Outcome where something unknown goes wrong
             else:
                 print('Incorrect input, try again.')
     except:
