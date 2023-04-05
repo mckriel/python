@@ -59,6 +59,7 @@ for i in range(email_address_count):
     # Print the email address
     email_address_list.append(email_address)
 
+# Export list of emails
 print('===============================================')
 print(f'List of {email_address_count} generated emails')
 print('===============================================')
