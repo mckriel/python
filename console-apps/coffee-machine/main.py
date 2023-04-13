@@ -1,0 +1,52 @@
+import menu
+import resources
+
+menu = menu.MENU
+resources = resources.resources
+cash_on_hand = 0
+
+
+def resources_report(current_resources):
+    for x, y in current_resources.items():
+        print(f'{x.capitalize()}: {y}')
+    print(f'Cash on hand: ${cash_on_hand}')
+
+
+def check_resources_for_drink(drink_resources):
+    for item in drink_resources:
+        if drink_resources[item] > resources[item]:
+            print(f'Not enough {item.capitalize()} to complete order.')
+            return False
+    return True
+
+
+def process_coins(drink_cost):
+    total = int(input('How many Quarters?: ')) * 0.25
+    total += int(input('How many Dimes?: ')) * 0.10
+
+    if total >= drink_cost:
+        return True
+    print(f'The drink costs ${drink_cost}, however the total value of coins inserted was ${total}. Please try again.')
+    return False
+
+
+def main():
+    continue_operations = True
+    print(resources)
+
+    while continue_operations:
+        user_choice = input('What would you like? (espresso/latte/cappuccino): ')
+
+        if user_choice == 'off':
+            break
+        elif user_choice == 'report':
+            resources_report(current_resources=resources)
+        else:
+            drink = menu[user_choice]
+            if check_resources_for_drink(drink_resources=drink['ingredients']):
+                if process_coins(drink_cost=drink['cost']):
+                    
+
+
+
+main()
