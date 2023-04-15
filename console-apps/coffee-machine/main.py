@@ -1,4 +1,4 @@
-import menu
+import drinksmenu
 import resources
 
 
@@ -8,8 +8,22 @@ def initialise_coffee_machine():
     global cash_on_hand
 
     machine_resources = resources.resources
-    menu = menu.MENU
+    menu = drinksmenu.MENU
     cash_on_hand = 0
+
+
+def restock_machine():
+    global machine_resources
+    global cash_on_hand
+
+    machine_resources = {
+        "water": 300,
+        "milk": 200,
+        "coffee": 100,
+    }
+
+    print('Machine has been restocked.')
+    print(f'Current balance: ${cash_on_hand}')
 
 
 def resources_report(current_resources):
@@ -46,23 +60,32 @@ def process_coins(drink_cost):
     return False
 
 
+def consume_ingredients(drink_ingredients):
+    for item in drink_ingredients:
+        global machine_resources
+        machine_resources[item] -= drink_ingredients[item]
+
+
 def main():
 
     initialise_coffee_machine()
     continue_operations = True
 
     while continue_operations:
-        user_choice = input('What would you like? (espresso/latte/cappuccino): ')
+        user_choice = input('What would you like? (espresso/latte/cappuccino): ').lower()
 
         if user_choice == 'off':
             break
         elif user_choice == 'report':
             resources_report(current_resources=machine_resources)
+        elif user_choice == 'restock':
+            restock_machine()
         else:
             drink = menu[user_choice]
             if check_resources_for_drink(drink_resources=drink['ingredients']):
                 if process_coins(drink_cost=drink['cost']):
-                    print('sweet')
+                    consume_ingredients(drink_ingredients=drink['ingredients'])
+                    print(f'Here is your {user_choice.capitalize()}. Enjoy')
 
 
 main()
