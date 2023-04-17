@@ -13,3 +13,6 @@ console-apps/quiz-game/.idea/modules.xml
 console-apps/quiz-game/.idea/misc.xml
 console-apps/quiz-game/.idea/inspectionProfiles/profiles_settings.xml
 console-apps/quiz-game/.idea/workspace.xml
+console-apps/quiz-game/__pycache__/data.cpython-311.pyc
+console-apps/quiz-game/__pycache__/question_model.cpython-311.pyc
+console-apps/quiz-game/__pycache__/quiz_brain.cpython-311.pyc
