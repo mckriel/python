@@ -1,28 +1,13 @@
-import turtle
 from turtle import Turtle, Screen
 
-tim = Turtle(shape='turtle', visible=False)
-screen = Screen()
 numbers_list = []
+screen = Screen()
+tim = Turtle(shape='turtle')
+tim.color('coral')
 
 
-def initialize_turtle():
-
-    tim.color('coral')
-
-    TURTLE_SIZE = 20
-
-    tim.penup()
-    tim.goto(0.50, screen.window_height() / 2 - TURTLE_SIZE / 2)
-    tim.pendown()
-    tim.showturtle()
-
-
-def calculate_angle(number_of_sides):
-    return round(360 / number_of_sides)
-
-
-def draw_shape(sides_of_shape, angle):
+def draw_shape(sides_of_shape):
+    angle = round(360 / sides_of_shape)
     for i in range(sides_of_shape):
         tim.forward(100)
         tim.right(angle)
@@ -40,12 +25,10 @@ def build_sides_array(number_of_sides):
     print(numbers_list)
 
 
-initialize_turtle()
-
 build_sides_array(int(input('Enter number of sides: ')))
 
 for number in numbers_list:
-    draw_shape(number, calculate_angle(number))
+    draw_shape(number)
 
 
 screen.exitonclick()
