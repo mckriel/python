@@ -1,13 +1,15 @@
 from turtle import Turtle, Screen
+import random
 
 numbers_list = []
+colors = ['ForestGreen', 'MediumBlue', 'DarkRed', 'SlateBlue', 'DarkOrange', 'SaddleBrown', 'Black', 'MediumVioletRed']
 screen = Screen()
 tim = Turtle(shape='turtle')
-tim.color('coral')
 
 
 def draw_shape(sides_of_shape):
     angle = round(360 / sides_of_shape)
+    tim.color(random.choice(colors))
     for i in range(sides_of_shape):
         tim.forward(100)
         tim.right(angle)
