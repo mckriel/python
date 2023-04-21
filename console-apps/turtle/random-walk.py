@@ -1,17 +1,23 @@
-from turtle import Turtle, Screen
+import turtle as t
 import random
 
 degree = [0, 90, 180, 270]
-colour = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", "SeaGreen"]
 
-screen = Screen()
-timmy = Turtle()
+t.colormode(255)
+timmy = t.Turtle()
 timmy.pensize(8)
-timmy.speed(10)
+
+
+def random_colour():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    colour_tuple = (r, g, b)
+    return colour_tuple
 
 
 def move():
-    timmy.color(random.choice(colour))
+    timmy.color(random_colour())
     timmy.setheading(random.choice(degree))
     timmy.fd(50)
 
