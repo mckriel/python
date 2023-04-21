@@ -24,7 +24,7 @@ def build_sides_array(number_of_sides):
 
     print(numbers_list)
 
-
+# Tab out of the Screen instance and input a number of sides into the console.
 build_sides_array(int(input('Enter number of sides: ')))
 
 for number in numbers_list:
