@@ -29,3 +29,4 @@ console-apps/turtle-apps/.idea/
 console-apps/turtle-apps/.idea
 turtle-apps/paddle/__pycache__/paddle.cpython-311.pyc
 turtle-apps/paddle/__pycache__/ball.cpython-311.pyc
+__pycache__/
