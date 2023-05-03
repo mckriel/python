@@ -34,15 +34,15 @@ def draw_window(window, birds, pipes, ground, score):
         pipe.draw(window)
 
     # bird score
-    score_label = STAT_FONT.render("Score: " + str(score), 1, (255, 255, 255))
+    score_label = STAT_FONT.render("Pipes: " + str(score), 1, (255, 255, 255))
     window.blit(score_label, (WINDOW_WIDTH - score_label.get_width() - 15, 10))
 
     # how many generations
-    score_label = STAT_FONT.render("Gens: " + str(gen - 1), 1, (255, 255, 255))
+    score_label = STAT_FONT.render("Generations: " + str(gen - 1), 1, (255, 255, 255))
     window.blit(score_label, (10, 10))
 
     # alive
-    score_label = STAT_FONT.render("Alive: " + str(len(birds)), 1, (255, 255, 255))
+    score_label = STAT_FONT.render("Birds: " + str(len(birds)), 1, (255, 255, 255))
     window.blit(score_label, (10, 50))
 
     ground.draw(window)

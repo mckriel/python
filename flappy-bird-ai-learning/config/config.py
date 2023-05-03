@@ -15,6 +15,6 @@ IMAGE_PIPE = pygame.transform.scale2x(pygame.image.load(os.path.join(IMAGE_PATH,
 IMAGE_GROUND = pygame.transform.scale2x(pygame.image.load(os.path.join(IMAGE_PATH, 'base.png')))
 IMAGE_BACKGROUND = pygame.transform.scale2x(pygame.image.load(os.path.join(IMAGE_PATH, 'bg.png')))
 
-STAT_FONT = pygame.font.SysFont('comicsans', 50)
+STAT_FONT = pygame.font.SysFont('arial', 20)
 
 NEAT_CONFIG_PATH = './config/neat-config.txt'
