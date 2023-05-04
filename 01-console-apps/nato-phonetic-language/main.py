@@ -19,4 +19,5 @@ def main():
     while run:
         print(produce_nato(df))
 
+
 main()
