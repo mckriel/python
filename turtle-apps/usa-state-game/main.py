@@ -36,10 +36,7 @@ def write_state_on_map(state_name, x, y):
 
 
 def export_missing_states(guessed_states):
-    missing_states = []
-    for state in all_states:
-        if state not in guessed_states:
-            missing_states.append(state[0])
+    missing_states = [state for state in all_states if state not in guessed_states]
     new_data = pandas.DataFrame(missing_states)
     new_data.to_csv('missed-states.csv')
 
