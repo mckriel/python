@@ -18,14 +18,14 @@ IMAGE_GROUND = config.IMAGE_GROUND
 IMAGE_BACKGROUND = config.IMAGE_BACKGROUND
 STAT_FONT = config.STAT_FONT
 NEAT_CONFIG_PATH = config.NEAT_CONFIG_PATH
+DRAW_LINES = True
 
 pygame.display.set_caption("Flappy Bird")
 
 gen = 0
 
 
-def draw_window(window, birds, pipes, ground, score):
-    global gen
+def draw_window(window, birds, pipes, ground, score, gen, pipe_index):
     if gen == 0:
         gen = 1
     window.blit(IMAGE_BACKGROUND, (0, 0))
@@ -47,6 +47,18 @@ def draw_window(window, birds, pipes, ground, score):
 
     ground.draw(window)
     for bird in birds:
+        if DRAW_LINES:
+            try:
+                pygame.draw.line(window, (255, 0, 0),
+                                 (bird.x + bird.image.get_width() / 2, bird.y + bird.image.get_height() / 2),
+                                 (pipes[pipe_index].x + pipes[pipe_index].PIPE_TOP.get_width() / 2, pipes[pipe_index].height),
+                                 5)
+                pygame.draw.line(window, (255, 0, 0),
+                                 (bird.x + bird.image.get_width() / 2, bird.y + bird.image.get_height() / 2), (
+                                 pipes[pipe_index].x + pipes[pipe_index].PIPE_BOTTOM.get_width() / 2,
+                                 pipes[pipe_index].bottom), 5)
+            except:
+                pass
         bird.draw(window)
 
     pygame.display.update()
@@ -138,7 +150,7 @@ def main(genomes, config):
                 ge.pop(birds.index(bird))
                 birds.pop(birds.index(bird))
 
-        draw_window(window, birds, pipes, ground, score)
+        draw_window(window, birds, pipes, ground, score, gen, pipe_index)
 
 
 def run(config_path):
@@ -152,7 +164,7 @@ def run(config_path):
     statistics = neat.StatisticsReporter()
     population.add_reporter(statistics)
 
-    winner = population.run(main, 100)
+    winner = population.run(main, 30)
 
 
 if __name__ == '__main__':
