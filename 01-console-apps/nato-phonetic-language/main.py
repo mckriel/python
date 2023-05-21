@@ -7,9 +7,9 @@ def load_alphabet():
 
 
 def produce_nato(df):
-    nato_input = input('Enter a word: ').upper()
-    nato_output = [df[letter] for letter in nato_input]
-    return nato_output
+        nato_input = input('Enter a word: ').upper()
+        nato_output = [df[letter] for letter in nato_input]
+        return nato_output
 
 
 def main():
@@ -17,7 +17,11 @@ def main():
     df = load_alphabet()
 
     while run:
-        print(produce_nato(df))
+        try:
+            print(produce_nato(df))
+        except KeyError:
+            print('Sorry, no spaces or symbols and only letters in the alphabet please.')
+
 
 
 main()
